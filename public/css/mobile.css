@@ -1,0 +1,85 @@
+/*độ rộng nhỏ hơn 768px*/
+#sub-dropdown:hover #sub-dropdown-menu {
+    display: none;
+}
+header .col-md-3 img {
+    width: 50%;
+}
+.icon-bootstrap {
+    display: none;
+}
+.card {
+    width: 100%;
+}
+.card-big img {
+    max-width: 100%;
+    height: auto;
+}
+.product-block-inner-1 {
+    width: 163px;
+    height: 163px;
+    margin: 0;
+}
+.massPrice,
+.massColor,
+.massFilter,
+.massSort {
+    width: 4rem;
+    font-size: 0.7rem;
+}
+.massPrice,
+.massColor {
+    margin-right: 1rem;
+}
+.massFilter {
+    width: 6rem;
+}
+.quantity {
+    font-size: 0.7rem;
+}
+.modal-dialog.modal-dialog-products {
+    max-width: 80% !important;
+}
+.only_pc {
+    display: none;
+}
+.products-group-item {
+    width: 45%;
+}
+/* ?????? của to ????? */
+h3.item-infor {
+    width: 100%;
+}
+h3.item-infor a {
+    text-align: center;
+    font-size: 14px;
+}
+.item-infor-content, .item-infor-content-1{
+    display: none;
+}
+.contact-map iframe {
+    width: 100%;
+}
+.section-box {
+    padding: 0 15px;
+}
+.main-content {
+    height: 171px;
+}
+.main-content  h2.content {
+    font-size: 25px;
+    padding: 40px 0px;
+}
+.main-content .background {
+    height: 171px;
+}
+/* Concept */
+.container-child-concept{
+    display:block;
+}
+.container-child-concept-inner,.container-child-concept-1-inner {
+    width: 100%;
+}
+.container-child-concept-1-inner{
+    margin-top:1rem;
+}
