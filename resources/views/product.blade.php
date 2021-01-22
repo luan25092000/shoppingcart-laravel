@@ -51,7 +51,7 @@
             <div class="row">
                 <div class="col-sm-12 position-button-slide">
                     <div class="own-one owl-carousel owl-theme owl-carousel-type3">
-                        <a href="{{ route("product.table") }}">
+                        <a href="{{ route("product.table", ['id' => 1]) }}">
                             <div class="product product-block">
                                 <img src="./img/slide/product/product1.png" alt="..." width="214px" height="214px">
                                 <img src="./img/slide/product/product1-hover.png" class="imgMix" alt="..." width="214px"
@@ -65,21 +65,21 @@
                                 </div>
                             </div>
                         </a>
-                        <a href="#">
+                        <a href="{{ route("product.table", ['id' => 2]) }}">
                             <div class="product product-block">
                                 <img src="./img/slide/product/product2.png" alt="..." width="214px" height="214px">
                                 <img src="./img/slide/product/product2-hover.png" class="imgMix" alt="..." width="214px"
                                     height="214px">
                                 <div class="name">CHIN</div>
                                 <div class="subname">Bàn làm việc</div>
-                                <div class="price">990,000₫</div>
+                                <div class="price">880,000₫</div>
                                 <div class="detail">
                                     <i class="far fa-eye"></i>
                                     <i class="fas fa-shopping-bag"></i>
                                 </div>
                             </div>
                         </a>
-                        <a href="#">
+                        <a href="{{ route("product.table", ['id' => 3]) }}">
                             <div class="product product-block">
                                 <img src="./img/slide/product/product3.png" alt="..." width="214px" height="214px">
                                 <img src="./img/slide/product/product3-hover.png" class="imgMix" alt="..." width="214px"
@@ -93,14 +93,14 @@
                                 </div>
                             </div>
                         </a>
-                        <a href="#">
+                        <a href="{{ route("product.table", ['id' => 4]) }}">
                             <div class="product product-block">
                                 <img src="./img/slide/product/product4.png" alt="..." width="214px" height="214px">
                                 <img src="./img/slide/product/product4-hover.png" class="imgMix" alt="..." width="214px"
                                     height="214px">
                                 <div class="name">CHIN</div>
                                 <div class="subname">Bàn làm việc</div>
-                                <div class="price">880,000₫</div>
+                                <div class="price">990,000₫</div>
                                 <div class="detail">
                                     <i class="far fa-eye"></i>
                                     <i class="fas fa-shopping-bag"></i>

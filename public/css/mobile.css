@@ -83,3 +83,21 @@ h3.item-infor a {
 .container-child-concept-1-inner{
     margin-top:1rem;
 }
+.account{
+    display:flex;
+    justify-content: flex-start;
+}
+.col-75 {
+    display: flex;
+    padding: 16px;
+    flex-direction: column;
+    background-color: #f2f2f2;
+    width: 100%;
+  }
+  .col-25 {
+    display: flex;
+    padding: 16px;
+    flex-direction: column;
+    background-color: #f2f2f2;
+    width: 100%;
+  }

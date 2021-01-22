@@ -9,37 +9,6 @@ use Illuminate\Support\Facades\Session;
 
 class ProductController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        $product = Product::where('id',1)->get();
-        return view('product-table')->with('product',$product);
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
 
     /**
      * Display the specified resource.
@@ -49,45 +18,12 @@ class ProductController extends Controller
      */
     public function show($id)
     {
-        //
+        $product = Product::where('id',$id)->get();
+        return view('product-table')->with('product',$product);
     }
 
     /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
+     * Add to cart
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  int  $id
@@ -100,15 +36,58 @@ class ProductController extends Controller
         $cart = new Cart($oldCart);
         $cart->add($product,$product->id);
         $request->session()->put('cart',$cart);
-        return redirect()->route('product.table');
+        return redirect()->route('product.table',['id' => $product->id]);
     }
 
+    /**
+     * Show item in cart
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function getCart(){
         if(!Session::has('cart')){
-            return view('cart', ['products' => null]);
+            return view('cart');
         }
         $oldCart = Session::get('cart');
         $cart = new Cart($oldCart);
         return view('cart', ['products' => $cart->items, 'totalPrice' => $cart->totalPrice]);
+    }
+
+    /**
+     * Checkout
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function getCheckout(){
+        if(!Session::has('cart')){
+            return view('cart');
+        }
+        $oldCart = Session::get('cart');
+        $cart = new Cart($oldCart);
+        return view('checkout', ['products' => $cart->items, 'totalPrice' => $cart->totalPrice]);
+    }
+
+     /**
+     * Delete item in cart
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function deleteItem(Request $request,$id){
+        $products = Session::get('cart');
+        foreach ($products as $product)
+            {
+                foreach($product as $item){
+                    if ($item['item']['id'] == $id) 
+                        {                
+                            unset($products);            
+                        }
+                }
+            }
+        //put back in session array without deleted item
+        $request->session()->push('cart',$products);
+        //then you can redirect or whatever you need
+        return redirect()->back();
     }
 }

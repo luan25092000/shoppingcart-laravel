@@ -9,22 +9,19 @@
             <form method="POST" action="{{ route('add.to.cart',['id' => $item->id]) }}" enctype="multipart/form-data">
 
                 @csrf
-                
+
                 <div class="row my-4">
                     <div class="col-md-5 product-detail-big-img">
-                        <img src="{{$item->imagePath}}" class="img-fluid" />
+                        <img src="{{ URL::to('/').$item->imagePath}}" class="img-fluid" />
                     </div>
                     <div class="col-md-5">
                         <h5 style="color:#676767;">{{$item->name}}</h5>
                         <small style="color:#676767;">Bàn sofa, bàn góc</small>
                         <div><small style="color:#676767;">Gía chỉ từ:</small></div>
-                        <div class="price">880,000₫</div>
-                        <small>Kích thước :</small>
-                        <small style="color:#676767;">Đường kính 45cm, cao 50cm</small>
-                        <div><i><small style="color:#676767;">Đường kính 60cm, cao 45cm</small></i></div>
+                        <div class="price">{{ number_format($item->price,-3,',',',') }}₫</div>
                         <div><i><small style="color:#676767;">Chất liệu : Mặt gỗ cao su sơn PU, chân gỗ tự nhiên
                         </small></i></div>
-                        <div><i><small style="color:#676767;">Màu sắc:</small></i></div>
+                        <div><i><small style="color:#676767;display:flex;align-items:center;">Màu sắc: <div style="width:10px;height:10px;background-color:{{$item->color}};border:1px solid black;margin-left:10px; margin-top:3px;"></div></small></i></div>
                         <button type="submit" class="add-to-cart mt-3" style="background-color:#676767; color:white;">Thêm vào
                             giỏ</button>
                     </div>
@@ -72,7 +69,7 @@
                         </div>
                     </div>
                     <div class="col-md-5">
-                        <img src="./img/product-detail/small-img1.jpg" class="img-fluid" alt="">
+                        <img src="{{ URL::to('/') }}/img/product-detail/small-img1.jpg" class="img-fluid" alt="">
                     </div>
                 </div>
             </div>
@@ -141,8 +138,8 @@
                 <div class="col-sm-12 position-button-slide">
                     <div class="own-one owl-carousel owl-theme owl-carousel-type3">
                         <div class="product product-block">
-                            <img src="./img/bed10-10.webp" alt="...">
-                            <img src="./img/bed10.webp" class="imgMix" alt="...">
+                            <img src="{{ URL::to('/') }}/img/bed10-10.webp" alt="...">
+                            <img src="{{ URL::to('/')}}/img/bed10.webp" class="imgMix" alt="...">
                             <div class="name">CUSTOMER</div>
                             <div class="subname">Ruột gốm ôm chữ nhật premium</div>
                             <div class="price-products">880,000₫</div>
@@ -156,8 +153,8 @@
                             </div>
                         </div>
                         <div class="product product-block">
-                            <img src="./img/bed9.webp" alt="...">
-                            <img src="./img/bed9-9.webp" class="imgMix" alt="...">
+                            <img src="{{ URL::to('/')}}/img/bed9.webp" alt="...">
+                            <img src="{{ URL::to('/')}}/img/bed9-9.webp" class="imgMix" alt="...">
                             <div class="name">CUSTOMER CUSTOMER</div>
                             <div class="subname">Ruột gốm ôm chữ nhật premium</div>
                             <div class="price-products">880,000₫</div>
@@ -171,8 +168,8 @@
                             </div>
                         </div>
                         <div class="product product-block">
-                            <img src="./img/bed8-8.webp" alt="...">
-                            <img src="./img/bed8.webp" class="imgMix" alt="...">
+                            <img src="{{ URL::to('/')}}/img/bed8-8.webp" alt="...">
+                            <img src="{{ URL::to('/')}}/img/bed8.webp" class="imgMix" alt="...">
                             <div class="name">CUSTOMER</div>
                             <div class="subname">Ruột gốm ôm chữ nhật premium</div>
                             <div class="price-products">880,000₫</div>
@@ -186,8 +183,8 @@
                             </div>
                         </div>
                         <div class="product product-block">
-                            <img src="./img/bed7.webp" alt="...">
-                            <img src="./img/bed7-7.webp" class="imgMix" alt="...">
+                            <img src="{{ URL::to('/')}}/img/bed7.webp" alt="...">
+                            <img src="{{ URL::to('/')}}/img/bed7-7.webp" class="imgMix" alt="...">
                             <div class="name">CUSTOMER</div>
                             <div class="subname">Ruột gốm ôm chữ nhật premium</div>
                             <div class="price-products">880,000₫</div>
@@ -226,27 +223,27 @@
                         <div class="own-one owl-carousel owl-theme owl-carousel-type3">
                             <div class="card">
                                 <a href="#">
-                                    <img src="./img/slide/anh1.jpg" class="card-img-top" alt="...">
+                                    <img src="{{ URL::to('/')}}/img/slide/anh1.jpg" class="card-img-top" alt="...">
                                 </a>
                             </div>
                             <div class="card">
                                 <a href="#">
-                                    <img src="./img/slide/anh2.jpg" class="card-img-top" alt="...">
+                                    <img src="{{ URL::to('/')}}/img/slide/anh2.jpg" class="card-img-top" alt="...">
                                 </a>
                             </div>
                             <div class="card">
                                 <a href="#">
-                                    <img src="./img/slide/anh3.jpg" class="card-img-top" alt="...">
+                                    <img src="{{ URL::to('/')}}/img/slide/anh3.jpg" class="card-img-top" alt="...">
                                 </a>
                             </div>
                             <div class="card">
                                 <a href="#">
-                                    <img src="./img/slide/anh4.jpg" class="card-img-top" alt="...">
+                                    <img src="{{ URL::to('/')}}/img/slide/anh4.jpg" class="card-img-top" alt="...">
                                 </a>
                             </div>
                             <div class="card">
                                 <a href="#">
-                                    <img src="./img/slide/anh5.jpg" class="card-img-top" alt="...">
+                                    <img src="{{ URL::to('/')}}/img/slide/anh5.jpg" class="card-img-top" alt="...">
                                 </a>
                             </div>
                         </div>

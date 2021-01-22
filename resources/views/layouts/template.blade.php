@@ -7,14 +7,15 @@
 	{{-- libraries --}}
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" />
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
+		integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     {{-- style --}}
 	<link rel="stylesheet" href="{{asset('css/owl.carousel.min.css')}}">
     <link rel="stylesheet" href="{{asset('css/owl.theme.default.css')}}">
 	<link rel="stylesheet" href="{{asset('css/pc.css')}}" media="all" />
 	<link rel="stylesheet" href="{{asset('css/tablet.css')}}" media="all and (max-width:1023px) and (min-width:768px)" />
 	<link rel="stylesheet" href="{{asset('css/mobile.css')}}" media="all and (max-width:767px)" />
-	<link rel="shortcut icon" type="image/png" href="./img/favicon.ico" />
+	<link rel="shortcut icon" type="image/png" href="{{ URL::to('/') }}/img/favicon.ico" />
 	<title>@yield('title')</title>
 </head>
 
@@ -24,8 +25,8 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-md-3">
-						<a href="./">
-							<img src="./img/logo.webp" alt="" />
+						<a href="{{ route('index') }}">
+							<img src="{{ URL::to('/') }}/img/logo.webp" alt="" />
 						</a>
 					</div>
 				</div>
@@ -59,13 +60,19 @@
 											tables
 										</a>
 										<ul class="dropdown-menu" id="sub-dropdown-menu">
-											<li><a class="dropdown-item" href="./product-detail">Bàn làm việc</a>
+											<li><a class="dropdown-item" href="./product-detail">BÀN ĂN</a>
 											</li>
-											<li><a class="dropdown-item" href="./product-detail">Bàn làm việc</a>
+											<li><a class="dropdown-item" href="./product-detail">BỘ BÀN ĂN</a>
 											</li>
-											<li><a class="dropdown-item" href="./product-detail">Bàn làm việc</a>
+											<li><a class="dropdown-item" href="./product-detail">BÀN LÀM VIỆC</a>
 											</li>
-											<li><a class="dropdown-item" href="./product-detail">Bàn làm việc</a>
+											<li><a class="dropdown-item" href="./product-detail">BÀN SOFA, BÀN GÓC</a>
+											</li>
+											<li><a class="dropdown-item" href="./product-detail">BÀN CAFE</a>
+											</li>
+											<li><a class="dropdown-item" href="./product-detail">BÀN TRANG ĐIỂM</a>
+											</li>
+											<li><a class="dropdown-item" href="./product-detail">CHÂN & MẶT BÀN</a>
 											</li>
 										</ul>
 									</li>
@@ -73,13 +80,15 @@
 											href="./product">SOFA -
 											sofas</a>
 										<ul class="dropdown-menu" id="sub-dropdown-menu">
-											<li><a class="dropdown-item" href="./product-detail">Bàn làm việc</a>
+											<li><a class="dropdown-item" href="./product-detail">SOFA BĂNG</a>
 											</li>
-											<li><a class="dropdown-item" href="./product-detail">Bàn làm việc</a>
+											<li><a class="dropdown-item" href="./product-detail">SOFA GÓC</a>
 											</li>
-											<li><a class="dropdown-item" href="./product-detail">Bàn làm việc</a>
+											<li><a class="dropdown-item" href="./product-detail">SOFA GIƯỜNG</a>
 											</li>
-											<li><a class="dropdown-item" href="./product-detail">Bàn làm việc</a>
+											<li><a class="dropdown-item" href="./product-detail">GHẾ ĐÔN, GHẾ BĂNG</a>
+											</li>
+											<li><a class="dropdown-item" href="./product-detail">GHẾ BÀNH, THƯ GIÃN</a>
 											</li>
 										</ul>
 									</li>
@@ -87,13 +96,15 @@
 											href="./product">CHĂN, GA,
 											GỐI - bedding</a>
 										<ul class="dropdown-menu" id="sub-dropdown-menu">
-											<li><a class="dropdown-item" href="./product-detail">Bàn làm việc</a>
+											<li><a class="dropdown-item" href="./product-detail">VỎ GỐI</a>
 											</li>
-											<li><a class="dropdown-item" href="./product-detail">Bàn làm việc</a>
+											<li><a class="dropdown-item" href="./product-detail">VỎ CHĂN</a>
 											</li>
-											<li><a class="dropdown-item" href="./product-detail">Bàn làm việc</a>
+											<li><a class="dropdown-item" href="./product-detail">GA GIƯỜNG</a>
 											</li>
-											<li><a class="dropdown-item" href="./product-detail">Bàn làm việc</a>
+											<li><a class="dropdown-item" href="./product-detail">GỐI TRANG TRÍ</a>
+											</li>
+											<li><a class="dropdown-item" href="./product-detail">CHĂN TRANG TRÍ</a>
 											</li>
 										</ul>
 									</li>
@@ -101,13 +112,11 @@
 											href="./product">ĐỒ GIA
 											DỤNG - household goods</a>
 										<ul class="dropdown-menu" id="sub-dropdown-menu">
-											<li><a class="dropdown-item" href="./product-detail">Bàn làm việc</a>
+											<li><a class="dropdown-item" href="./product-detail">RÈM</a>
 											</li>
-											<li><a class="dropdown-item" href="./product-detail">Bàn làm việc</a>
+											<li><a class="dropdown-item" href="./product-detail">THÙNG RÁC</a>
 											</li>
-											<li><a class="dropdown-item" href="./product-detail">Bàn làm việc</a>
-											</li>
-											<li><a class="dropdown-item" href="./product-detail">Bàn làm việc</a>
+											<li><a class="dropdown-item" href="./product-detail">KỆ BẾP</a>
 											</li>
 										</ul>
 									</li>
@@ -115,13 +124,13 @@
 											href="./product">KỆ, TỦ -
 											shelf units, cabinets</a>
 										<ul class="dropdown-menu" id="sub-dropdown-menu">
-											<li><a class="dropdown-item" href="./product-detail">Bàn làm việc</a>
+											<li><a class="dropdown-item" href="./product-detail">KỆ,TỦ LƯU TRỮ</a>
 											</li>
-											<li><a class="dropdown-item" href="./product-detail">Bàn làm việc</a>
+											<li><a class="dropdown-item" href="./product-detail">KỆ,TỦ TV</a>
 											</li>
-											<li><a class="dropdown-item" href="./product-detail">Bàn làm việc</a>
+											<li><a class="dropdown-item" href="./product-detail">KỆ,TỦ GIÀY</a>
 											</li>
-											<li><a class="dropdown-item" href="./product-detail">Bàn làm việc</a>
+											<li><a class="dropdown-item" href="./product-detail">KỆ,TỦ QUẦN ÁO</a>
 											</li>
 										</ul>
 									</li>
@@ -143,27 +152,11 @@
 											href="./product">ĐÈN -
 											lamps</a>
 										<ul class="dropdown-menu" id="sub-dropdown-menu">
-											<li><a class="dropdown-item" href="./product-detail">Bàn làm việc</a>
+											<li><a class="dropdown-item" href="./product-detail">ĐÈN SÀN</a>
 											</li>
-											<li><a class="dropdown-item" href="./product-detail">Bàn làm việc</a>
+											<li><a class="dropdown-item" href="./product-detail">ĐÈN BÀN</a>
 											</li>
-											<li><a class="dropdown-item" href="./product-detail">Bàn làm việc</a>
-											</li>
-											<li><a class="dropdown-item" href="./product-detail">Bàn làm việc</a>
-											</li>
-										</ul>
-									</li>
-									<li class="dropdown" id="sub-dropdown"> <a class="dropdown-item"
-											href="./product">ĐÈN -
-											lamps</a>
-										<ul class="dropdown-menu" id="sub-dropdown-menu">
-											<li><a class="dropdown-item" href="./product-detail">Bàn làm việc</a>
-											</li>
-											<li><a class="dropdown-item" href="./product-detail">Bàn làm việc</a>
-											</li>
-											<li><a class="dropdown-item" href="./product-detail">Bàn làm việc</a>
-											</li>
-											<li><a class="dropdown-item" href="./product-detail">Bàn làm việc</a>
+											<li><a class="dropdown-item" href="./product-detail">ĐÈN TRANG TRÍ</a>
 											</li>
 										</ul>
 									</li>
@@ -171,39 +164,25 @@
 											href="./product">SẢN PHẨM
 											DỆT MAY - home</a>
 										<ul class="dropdown-menu" id="sub-dropdown-menu">
-											<li><a class="dropdown-item" href="./product-detail">Bàn làm việc</a>
+											<li><a class="dropdown-item" href="./product-detail">THẢM</a>
 											</li>
-											<li><a class="dropdown-item" href="./product-detail">Bàn làm việc</a>
-											</li>
-											<li><a class="dropdown-item" href="./product-detail">Bàn làm việc</a>
-											</li>
-											<li><a class="dropdown-item" href="./product-detail">Bàn làm việc</a>
+											<li><a class="dropdown-item" href="./product-detail">NỆM</a>
 											</li>
 										</ul>
 									</li>
 									<li class="dropdown" id="sub-dropdown"> <a class="dropdown-item"
 											href="./product">ẤN PHẨM -
 											publications</a>
-										<ul class="dropdown-menu" id="sub-dropdown-menu">
-											<li><a class="dropdown-item" href="./product-detail">Bàn làm việc</a>
-											</li>
-											<li><a class="dropdown-item" href="./product-detail">Bàn làm việc</a>
-											</li>
-											<li><a class="dropdown-item" href="./product-detail">Bàn làm việc</a>
-											</li>
-											<li><a class="dropdown-item" href="./product-detail">Bàn làm việc</a>
-											</li>
-										</ul>
 									</li>
 									<li class="dropdown" id="sub-dropdown"> <a class="dropdown-item"
 										href="./product">BỘ SƯU TẬP -
 										collections</a>
 									<ul class="dropdown-menu" id="sub-dropdown-menu">
-										<li><a class="dropdown-item" href="./collection">Bộ sưu tập DALAT</a>
+										<li><a class="dropdown-item" href="./collection">BỘ SƯU TẬP DALAT</a>
 										</li>
-										<li><a class="dropdown-item" href="./collection">Bộ sưu tập JOHY</a>
+										<li><a class="dropdown-item" href="./collection">BỘ SƯU TẬP JOHY</a>
 										</li>
-										<li><a class="dropdown-item" href="./collection">Bộ sưu tập HANO</a>
+										<li><a class="dropdown-item" href="./collection">BỘ SƯU TẬP HANO</a>
 										</li>
 									</ul>
 								</li>
@@ -244,11 +223,6 @@
 									<path d="M8 1.5A2.5 2.5 0 0 0 5.5 4h-1a3.5 3.5 0 1 1 7 0h-1A2.5 2.5 0 0 0 8 1.5z" />
 								</svg>
 								<span class="qty-order">{{ Session::has('cart') ? Session::get('cart')->totalQty : '' }}</span>
-							</a>
-							<a href="./sign-in">
-								<svg width="1.5em" height="1.5em" class="svg-icon" viewBox="0 0 20 20">
-									<path d="M12.075,10.812c1.358-0.853,2.242-2.507,2.242-4.037c0-2.181-1.795-4.618-4.198-4.618S5.921,4.594,5.921,6.775c0,1.53,0.884,3.185,2.242,4.037c-3.222,0.865-5.6,3.807-5.6,7.298c0,0.23,0.189,0.42,0.42,0.42h14.273c0.23,0,0.42-0.189,0.42-0.42C17.676,14.619,15.297,11.677,12.075,10.812 M6.761,6.775c0-2.162,1.773-3.778,3.358-3.778s3.359,1.616,3.359,3.778c0,2.162-1.774,3.778-3.359,3.778S6.761,8.937,6.761,6.775 M3.415,17.69c0.218-3.51,3.142-6.297,6.704-6.297c3.562,0,6.486,2.787,6.705,6.297H3.415z"></path>
-								</svg>
 							</a>
 						</form>
 					</div>
@@ -310,23 +284,25 @@
 					</a>
 				</div>
 				<div class="col-md-3">
-					<span>Contact</span>
-					<p>Công ty TNHH Kiến trúc và Nội thất Make My Home <br>
-						GPĐKKD số 0314329518 do Sở KHĐT TP.HCM cấp ngày 03/04/2017 <br>
-						97-99 Cộng Hoà, lầu 3, phường 4, quận Tân Bình, Hồ Chí Minh <br>
-						ĐT: 028 6267 6466 - ‭0866757758 <br>
-						Email: support@makemyhomevn.com</p>
-					<a href="#" class="icon-footer"><i class="fab fa-facebook-f"></i></a>
-					<a href="#" class="icon-footer"><i class="fab fa-instagram"></i></a>
-					<a href="#" class="icon-footer"><i class="fab fa-youtube"></i></i></a>
-					<a href="#" class="icon-footer"><i class="fab fa-twitter"></i></i></a>
+					<a href="{{ route('address') }}">
+						<span>Contact</span>
+						<p>Công ty TNHH Kiến trúc và Nội thất Ánh Trinh <br>
+							GPĐKKD số 0314329518 do Sở KHĐT TP.HCM cấp ngày 03/04/2017 <br>
+							740/5D Âu Cơ, P.14, Q.Tân Bình, TP.HCM <br>
+							ĐT: 089 810 3236 - 0908552259 <br>
+							Email: nguyenhuuluan17@gmail.com</p>
+						<a href="#" class="icon-footer"><i class="fab fa-facebook-f"></i></a>
+						<a href="#" class="icon-footer"><i class="fab fa-instagram"></i></a>
+						<a href="#" class="icon-footer"><i class="fab fa-youtube"></i></i></a>
+						<a href="#" class="icon-footer"><i class="fab fa-twitter"></i></i></a>
+					</a>
 				</div>
 				<div class="col-md-8" style="font-size : 30px;color: #7D6968">
 					minimal living
 				</div>
 				<div class="col-md-4">
-					<a href="#"><img src="./img/logo_bct.webp" alt=""></a>
-					<a href="#"><img src="./img/dmca_protected_16_120.png" alt=""></a>
+					<a href="#"><img src="{{ URL::to('/') }}/img/logo_bct.webp" alt=""></a>
+					<a href="#"><img src="{{ URL::to('/') }}/img/dmca_protected_16_120.png" alt=""></a>
 				</div>
 			</div>
 		</div>
@@ -369,6 +345,8 @@ logged_out_greeting="Mình là Luân, mình có thể giúp gì được cho b�
 	<script src="./js/owl.carousel.min.js"></script>
 	<script src="./js/script.js"></script>
 	<script src="./js/dropdown.js"></script>
+	<script src="https://js.stripe.com/v3/"></script>
+	<script src="./js/checkout.js"></script>
 </body>
 
 </html>

@@ -8,13 +8,13 @@
             <div class="container">
                 <div class="main-content">
                     <h2 class="content">Giỏ hàng</h2>
-                    <div class="background" style="background-image: url(ha/about_header_bg.webp);"></div>
+                    <div class="background" style="background-image: url(./img/about_header_bg.webp);"></div>
                 </div>
             </div>
         </div>
         <div class="container">
             <div class="cart-form">
-                <form class="cart-form" action="/cart" method="post" novalidate="">
+                <form class="cart-form" action="{{ route("checkout") }}" method="get">
                     <div class="table-responsive">
                         <table class="table cart-table">
                             <thead>
@@ -27,42 +27,41 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td class="product-remove">
-                                        <a class="remove" href=""><i class="fas fa-times-circle"></i></a>
-                                    </td>
-                                    <td class="product-name">
-                                        <a href="">
-                                            <img src="./img/cart/1.webp" alt="SILK MYSA">
-                                        </a>
-                                        <div style="display:inline-block;margin-left:10px;">
-                                            <p><a href="">SILK MYSA</a></p>
-                                            <p>
-                                                <span>Kích thước: </span>D200x R120cm
-                                            </p>
-                                        </div>
-                                    </td>
-                                    <td class="product-price">
-                                        <p class="price"> 780,000₫</p>
+                                @foreach ($products as $product)
+                                    <tr>
+                                        <td class="product-remove">
+                                            <a class="remove" href="{{ route('delete.order',['id'=>$product['item']['id']]) }}"><i class="fas fa-times-circle"></i></a>
+                                        </td>
+                                        <td class="product-name">
+                                            <a href="">
+                                                <img src="{{ $product['item']['imagePath'] }}" alt="{{ $product['item']['name'] }}" width="160px" height="160px">
+                                            </a>
+                                            <div style="display:inline-block;margin-left:10px;">
+                                                <p><a style="color:#8f8c8c;" href="">{{ $product['item']['name'] }}</a></p>
+                                            </div>
+                                        </td>
+                                        <td class="product-price">
+                                            <p class="price">{{ number_format($product['item']['price'],-3,',',',') }}₫</p>
 
-                                    </td>
-                                    <td>
-                                        <div class="quantity">
-                                            <button class="minus-btn" type="button" name="button">
-                                                <i class="far fa-minus-square"></i>
-                                            </button>
-                                            <input type="text" class="input-1" min="0" value="1" size="3">
-                                            <button class="plus-btn" type="button" name="button">
-                                                <i class="far fa-plus-square"></i>
-                                            </button>
-                                        </div>
-                                    </td>
-                                    <td class="product-subtotal product-price">
-                                        <span class="price">
-                                            1,560,000₫
-                                        </span>
-                                    </td>
-                                </tr>
+                                        </td>
+                                        <td>
+                                            <div class="quantity">
+                                                <button class="minus-btn" type="button" name="button">
+                                                    <i class="far fa-minus-square"></i>
+                                                </button>
+                                                <input type="text" class="input-1" min="0" value="{{ $product['qty'] }}" size="3">
+                                                <button class="plus-btn" type="button" name="button">
+                                                    <i class="far fa-plus-square"></i>
+                                                </button>
+                                            </div>
+                                        </td>
+                                        <td class="product-subtotal product-price">
+                                            <span class="price">
+                                                {{ number_format($product['price'],-3,',',',') }}₫
+                                            </span>
+                                        </td>
+                                    </tr>
+                                @endforeach
                             </tbody>
                         </table>
                     </div>
@@ -86,30 +85,18 @@
                                         <div class="grid__item text-right">
                                             <p class="total margin-bottom-30">
                                                 <span class="title">Tất cả</span>
-                                                <span class="price">1,560,000₫</span>
+                                                <span class="price">{{ number_format($totalPrice,-3,',',',') }}₫</span>
 
                                                 <br>
                                                 <span>(Chưa bao gồm phí vận chuyển)</span>
                                             </p>
                                         </div>
 
-                                        <button class="btn btn-pay">Thanh toán</button>
+                                        <button class="btn btn-pay" type="submit">Thanh toán</button>
                                     </div>
                                 </div>
 
                             </div>
-                            <table>
-                                <tbody>
-
-
-                                </tbody>
-                                <tbody>
-
-                                </tbody>
-
-
-                            </table>
-
                         </div>
 
                     </div>
@@ -121,7 +108,7 @@
 
 
             </form>
-            <div class="fix-coutinued"><a href="/collections/all">« Tiếp tục mua sắm</a>
+            <div class="fix-coutinued"><a href="{{ route('products') }}">« Tiếp tục mua sắm</a>
             </div>
         </div>
         <script type="text/javascript">
@@ -223,6 +210,16 @@
                     </a>
                 </div>
             </div>
+        </div>
+    @else
+        <div class="container-fluid">
+            <div class="container">
+                <div class="main-content">
+                    <h2 class="content">Giỏ hàng</h2>
+                    <div class="background" style="background-image: url(./img/about_header_bg.webp);"></div>
+                </div>
+            </div>
+            <div>Giỏ hàng của bạn hiện đang trống! <a href=" {{ route('products') }} " style="color: #9D9E99;">Hãy nhấp vào đây để mua sắm</a></div>
         </div>
     @endif
 @endsection
