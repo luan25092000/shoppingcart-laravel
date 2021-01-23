@@ -21,7 +21,7 @@
 
 <body>
 	<header>
-		<div class="container-fluid menu">
+		<div class="container-fluid menu mb-3">
 			<div class="container">
 				<div class="row">
 					<div class="col-md-3">
@@ -50,7 +50,7 @@
 							</li>
 							<li class="nav-item"> <a class="nav-link" href="./about">Giới thiệu</a>
 							</li>
-							<li class="nav-item dropdown"> <a class="nav-link" href="./products"
+							<li class="nav-item dropdown"> <a class="nav-link" href="{{ route('products') }}"
 									id="navbarDropdown" role="button" data-toggle="dropdown">
 									Sản phẩm
 								</a>
@@ -212,19 +212,25 @@
 							<li class="nav-item"> <a class="nav-link" href="./sales">Ưu Đãi</a>
 							</li>
 						</ul>
-						<form class="form-inline my-2 my-lg-0 text-right icon-bootstrap-in-menu">
-							<input class="form-control mr-sm-2" type="search" placeholder="Tìm kiếm sản phẩm..."
-								aria-label="Search">
-							<a href="{{ route('cart') }}">
-								<svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-bag"
-									fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-									<path fill-rule="evenodd"
-										d="M14 5H2v9a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1V5zM1 4v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4H1z" />
-									<path d="M8 1.5A2.5 2.5 0 0 0 5.5 4h-1a3.5 3.5 0 1 1 7 0h-1A2.5 2.5 0 0 0 8 1.5z" />
-								</svg>
-								<span class="qty-order">{{ Session::has('cart') ? Session::get('cart')->totalQty : '' }}</span>
-							</a>
-						</form>
+						<div class="search-container">
+							<form class="form-inline my-2 my-lg-0 text-right icon-bootstrap-in-menu" method = "get" action = "{{ route('search') }}" enctype="multipart/form-data">
+
+								@csrf
+
+								<input class="form-control mr-sm-2" type="search" placeholder="Tìm kiếm sản phẩm..." name="key"
+									aria-label="Search">
+								<button type="submit"><i class="fa fa-search"></i></button>
+							</form>
+						</div>
+						<a href="{{ route('cart') }}">
+							<svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-bag"
+								fill="currentColor" xmlns="http://www.w3.org/2000/svg" style="color: black;">
+								<path fill-rule="evenodd"
+									d="M14 5H2v9a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1V5zM1 4v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4H1z" />
+								<path d="M8 1.5A2.5 2.5 0 0 0 5.5 4h-1a3.5 3.5 0 1 1 7 0h-1A2.5 2.5 0 0 0 8 1.5z" />
+							</svg>
+							<span class="qty-order">{{ Session::has('cart') ? Session::get('cart')->totalQty : '' }}</span>
+						</a>
 					</div>
 				</nav>
 			</div>

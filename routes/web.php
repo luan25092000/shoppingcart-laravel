@@ -68,3 +68,6 @@ Route::post('product-table/{id}',['uses'=>'ProductController@addToCart','as'=>'a
 Route::get('cart',['uses'=>'ProductController@getCart','as'=>'cart']);
 Route::get('checkout',['uses'=>'ProductController@getCheckout','as'=>'checkout']);
 Route::get('delete/{id}',['uses'=>'ProductController@deleteItem','as'=>'delete.order']);
+Route::get('getinfo-facebook/{social}',['uses'=>'SocialController@getInfo','as'=>'getinfo.facebook']);
+Route::get('checkinfo-facebook/{social}',['uses'=>'SocialController@checkInfo','as'=>'checkinfo.facebook']);
+Route::get('search',['uses'=>'ProductController@searchProduct','as'=>'search']);

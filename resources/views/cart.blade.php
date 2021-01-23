@@ -219,7 +219,7 @@
                     <div class="background" style="background-image: url(./img/about_header_bg.webp);"></div>
                 </div>
             </div>
-            <div>Giỏ hàng của bạn hiện đang trống! <a href=" {{ route('products') }} " style="color: #9D9E99;">Hãy nhấp vào đây để mua sắm</a></div>
+            <div class="container mt-4 mb-4">Giỏ hàng của bạn hiện đang trống! <a href=" {{ route('products') }} " style="color: #9D9E99;">Hãy nhấp vào đây để mua sắm</a></div>
         </div>
     @endif
 @endsection

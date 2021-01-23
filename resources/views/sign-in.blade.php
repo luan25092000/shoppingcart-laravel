@@ -27,8 +27,6 @@
                         {{ $errors->first('email') }}
                     </div>
                 @endif
-            </div>
-            <div class="form-group">
                 <label for="password">Password</label>
                 <input type="password" class="form-control {{ $errors->has('password') ? 'error' : '' }} input-signin" id="password" name="password">
                 @if ($errors->has('password'))
@@ -38,6 +36,14 @@
                 @endif
             </div>
             <div class="sign-up-link"><a href="sign-up">Nhấp vào đây để đăng ký !</a></div>
+            <div class="d-flex mt-4 justify-content-between social-login">
+                <a href="{{ route('checkinfo.facebook',['social' => 'facebook']) }}" class="fb btn">
+                    <i class="fa fa-facebook fa-fw"></i> Login with Facebook
+                </a>
+                <a href="#" class="google btn"><i class="fa fa-google fa-fw">
+                    </i> Login with Google+
+                </a>
+            </div>
             <button type="submit" class="btn btn-signin">ĐĂNG NHẬP</button>
         </form>
     </div>

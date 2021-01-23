@@ -6,7 +6,7 @@
     <div class="container">
         <!-- Phần giới thiệu sản phẩm -->
         <div class="container-inner-1">
-            <a href="#" class="home">Trang chủ</a> <span class="collection">/ DALAT collection</span>
+            <a href="{{ route('index') }}" class="home">Trang chủ</a> <span class="collection">/ DALAT collection</span>
             <h4 class="title mt-2">DALAT collection</h4>
             <img src="img/picture/picture1.png" alt="picture" class="responsive">
             <div class="paragraph">

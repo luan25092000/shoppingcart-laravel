@@ -90,4 +90,18 @@ class ProductController extends Controller
         //then you can redirect or whatever you need
         return redirect()->back();
     }
+
+    /**
+     * Search product
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function searchProduct(Request $request)
+    {
+       $keyword = $request->get('key');
+       $results = Product::where('name','LIKE','%'.$keyword.'%')->get();
+       return view('search',['results' => $results, 'keyword' => $keyword]);
+    }
+
 }
