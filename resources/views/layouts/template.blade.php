@@ -353,6 +353,17 @@ logged_out_greeting="Mình là Luân, mình có thể giúp gì được cho b�
 	<script src="./js/dropdown.js"></script>
 	<script src="https://js.stripe.com/v3/"></script>
 	<script src="./js/checkout.js"></script>
+	<script src="https://www.google.com/recaptcha/api.js"></script>
+	<script>
+		function showPassword() {
+			var x = document.getElementById("password");
+			if (x.type === "password") {
+			x.type = "text";
+			} else {
+			x.type = "password";
+			}
+  		}
+	</script>
 </body>
 
 </html>

@@ -69,26 +69,52 @@ class ProductController extends Controller
 
      /**
      * Delete item in cart
-     *
-     * @param  \Illuminate\Http\Request  $request
+     * 
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function deleteItem(Request $request,$id){
-        $products = Session::get('cart');
-        foreach ($products as $product)
-            {
-                foreach($product as $item){
-                    if ($item['item']['id'] == $id) 
-                        {                
-                            unset($products);            
-                        }
-                }
-            }
-        //put back in session array without deleted item
-        $request->session()->push('cart',$products);
-        //then you can redirect or whatever you need
-        return redirect()->back();
+    public function deleteItem($id){
+        $oldCart = Session::has('cart') ? Session::get('cart') : null;
+        $cart = new Cart($oldCart);
+        $cart->deleteItem($id);
+        if(count($cart->items) > 0){
+            Session::put('cart',$cart);
+        }else{
+            Session::forget('cart');
+        }
+        return redirect()->route('cart');
+    }
+
+    /**
+     * Decrease item in cart
+     * 
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function decreaseItem($id){
+        $oldCart = Session::has('cart') ? Session::get('cart') : null;
+        $cart = new Cart($oldCart);
+        $cart->decreaseItemByOne($id);
+        if(count($cart->items) > 0){
+            Session::put('cart',$cart);
+        }else{
+            Session::forget('cart');
+        }
+        return redirect()->route('cart');
+    }
+
+    /**
+     * Increase item in cart
+     * 
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function increaseItem($id){
+        $oldCart = Session::has('cart') ? Session::get('cart') : null;
+        $cart = new Cart($oldCart);
+        $cart->increaseItemByOne($id);
+        Session::put('cart',$cart);
+        return redirect()->route('cart');
     }
 
     /**

@@ -236,5 +236,5 @@ $(document).ready(function () {
       }else{
           $(".price").text("109,960,000₫");
       }
-  });
+  }); 
 });

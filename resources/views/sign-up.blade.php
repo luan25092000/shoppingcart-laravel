@@ -42,14 +42,43 @@
             <div class="form-group">
                 <label for="password">Password</label>
                 <input type="password" class="form-control {{ $errors->has('password') ? 'error' : '' }} input-signin" id="password" name="password">
+                <input type="checkbox" onclick="showPassword()">Show Password
                 @if ($errors->has('password'))
                     <div class="error text-danger">
                         {{ $errors->first('password') }}
                     </div>
                 @endif
             </div>
+            <div class="g-recaptcha brochure__form__captcha" data-sitekey="6LdswjkaAAAAAKPf4hxDTWHGrydKQGQpLJdv1zjt"></div>
             <div class="sign-up-link"><a href="sign-in">Bạn đã có tài khoản rồi ?</a></div>
-            <button type="submit" class="btn btn-signin">ĐĂNG KÝ</button>
+            <button type="submit" class="btn btn-signin" name="submit">ĐĂNG KÝ</button>
         </form>
+    </div>
+    <div class="error text-danger">
+        <?php 
+            if(isset($_POST['submit'])){
+                $recaptcha = $_POST['g-recaptcha-response'];
+                $res = reCaptcha($recaptcha);
+                if(!$res['success']){
+                    echo "Invalid captcha, please try again !";
+                }
+            }
+            function reCaptcha($recaptcha){
+                $secret = "6LdswjkaAAAAAMpZzNEPGhoWuXV5W1U1IxhDxDEO";
+                $ip = $_SERVER['REMOTE_ADDR'];
+
+                $postvars = array("secret"=>$secret, "response"=>$recaptcha, "remoteip"=>$ip);
+                $url = "https://www.google.com/recaptcha/api/siteverify";
+                $ch = curl_init();
+                curl_setopt($ch, CURLOPT_URL, $url);
+                curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+                curl_setopt($ch, CURLOPT_TIMEOUT, 10);
+                curl_setopt($ch, CURLOPT_POSTFIELDS, $postvars);
+                $data = curl_exec($ch);
+                curl_close($ch);
+
+                return json_decode($data, true);
+            }
+        ?>
     </div>
 @endsection

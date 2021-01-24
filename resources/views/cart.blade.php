@@ -30,7 +30,7 @@
                                 @foreach ($products as $product)
                                     <tr>
                                         <td class="product-remove">
-                                            <a class="remove" href="{{ route('delete.order',['id'=>$product['item']['id']]) }}"><i class="fas fa-times-circle"></i></a>
+                                            <a class="remove" href="{{ route('delete.order', ['id' => $product['item']['id']]) }}"><i class="fas fa-times-circle"></i></a>
                                         </td>
                                         <td class="product-name">
                                             <a href="">
@@ -46,13 +46,13 @@
                                         </td>
                                         <td>
                                             <div class="quantity">
-                                                <button class="minus-btn" type="button" name="button">
+                                                <a class="minus-btn" href="{{ route('decrease.item',['id' => $product['item']['id']]) }}">
                                                     <i class="far fa-minus-square"></i>
-                                                </button>
+                                                </a>
                                                 <input type="text" class="input-1" min="0" value="{{ $product['qty'] }}" size="3">
-                                                <button class="plus-btn" type="button" name="button">
+                                                <a class="plus-btn" href="{{ route('increase.item',['id' => $product['item']['id']]) }}"> 
                                                     <i class="far fa-plus-square"></i>
-                                                </button>
+                                                </a>
                                             </div>
                                         </td>
                                         <td class="product-subtotal product-price">
