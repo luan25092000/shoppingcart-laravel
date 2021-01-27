@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\User;
+use Illuminate\Support\Facades\Session;
 
 class UserSignUp extends Controller
 {
@@ -51,8 +52,14 @@ class UserSignUp extends Controller
             'password' => bcrypt($request->input('password')) 
         ]);
         $user->save();
+        if(Session::has('user')){
+            Session::forget('user');
+            Session::put('user',$user);
+        }else{
+            Session::put('user',$user);
+        }
         Auth::login($user);
-        return view('profile')->with('user',$user);
+        return view('profile');
     }
 
     /**

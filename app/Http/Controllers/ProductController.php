@@ -5,8 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Product;
 use App\Cart;
+use App\Order;
 use Illuminate\Support\Facades\Session;
-
 class ProductController extends Controller
 {
 
@@ -65,6 +65,40 @@ class ProductController extends Controller
         $oldCart = Session::get('cart');
         $cart = new Cart($oldCart);
         return view('checkout', ['products' => $cart->items, 'totalPrice' => $cart->totalPrice]);
+    }
+
+    /**
+     * Pay
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function pay(Request $request){
+        if(!Session::has('cart')){
+            return view('cart');
+        }
+        $oldCart = Session::get('cart');
+        $cart = new Cart($oldCart);
+        $order = new Order();
+        $key = ['product','color','price','qty'];
+        $products = [];
+        foreach($cart->items as $item){
+            $product = [];
+            array_push($product,$item['item']['name'],$item['item']['color'],$item['price'],$item['qty']);
+            array_push($products, array_combine($key,$product));
+        }
+        $order->email = $request->input('email');
+        $order->address = $request->input('address');
+        $order->city = $request->input('city');
+        $order->state = $request->input('state');
+        $order->zip = $request->input('zip');
+        $order->cart = serialize($products);
+        $order->total = $cart->totalPrice;
+        
+        $order->save();
+
+        Session::forget('cart');
+        return redirect()->route('index')->with('success', 'Successfully purchased products');
     }
 
      /**

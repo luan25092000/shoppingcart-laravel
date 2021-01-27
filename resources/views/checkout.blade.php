@@ -13,7 +13,7 @@
     </div>
     <div class="container">
         <div class="wrap">
-            <form action="" method="post">
+            <form action="{{ route('pay') }}" method="get">
                 <div class="col-75">
                     <div class="form-group">
                         <label for="fname"><i class="fa fa-user"></i> Full Name</label>
@@ -33,7 +33,7 @@
                     </div>
                     <div class="form-group">
                         <label for="state"><i class="fas fa-flag"></i> State</label>
-                        <input type="text" id="state" name="state" placeholder="Enter your state" class="form-control" required>
+                        <input type="text" id="state" name="state" placeholder="Enter your state" class="form-control">
                     </div>
                     <div class="form-group">
                         <label for="zip"><i class="fas fa-user-check"></i> Zip</label>

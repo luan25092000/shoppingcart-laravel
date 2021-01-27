@@ -67,6 +67,7 @@ Route::get('product/product-table/{id}',['uses'=>'ProductController@show','as'=>
 Route::post('product/product-table/{id}',['uses'=>'ProductController@addToCart','as'=>'add.to.cart']);
 Route::get('cart',['uses'=>'ProductController@getCart','as'=>'cart']);
 Route::get('checkout',['uses'=>'ProductController@getCheckout','as'=>'checkout']);
+Route::get('pay',['uses'=>'ProductController@pay','as'=>'pay']);
 Route::get('delete/{id}',['uses'=>'ProductController@deleteItem','as'=>'delete.order']);
 Route::get('decrease/{id}',['uses'=>'ProductController@decreaseItem','as'=>'decrease.item']);
 Route::get('increase/{id}',['uses'=>'ProductController@increaseItem','as'=>'increase.item']);
@@ -77,3 +78,7 @@ Route::get('login/facebook/callback',[App\Http\Controllers\SocialController::cla
 //Google login
 Route::get('login/google',[App\Http\Controllers\SocialController::class,'redirectToGoogle'])->name('login.google');
 Route::get('login/google/callback',[App\Http\Controllers\SocialController::class,'handleGoogleCallback']);
+//Admin login
+Route::get('admin',function(){
+    return view("admin");
+})->name('admin');

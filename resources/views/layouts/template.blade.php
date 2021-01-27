@@ -235,7 +235,14 @@
 				</nav>
 			</div>
 		</div>
-    </header>
+	</header>
+	<div class="container">
+		@if(Session::has('success'))
+            <div class="alert alert-success">
+                {{Session::get('success')}}
+            </div>
+        @endif
+	</div>
     @yield('content')
 	<footer>
 		<div class="container footer">
