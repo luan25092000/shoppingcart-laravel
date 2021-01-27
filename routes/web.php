@@ -58,7 +58,7 @@ Route::post('contact','UserContact@store');
 //Sign in, sign up
 Route::get('sign-up',['uses'=>'UserSignUp@create','middleware' => 'guest']);
 Route::post('sign-up',['uses'=>'UserSignUp@store','middleware' => 'guest']);
-Route::get('sign-in',['uses'=>'UserSignIn@create','middleware' => 'guest']);
+Route::get('sign-in',['uses'=>'UserSignIn@create','middleware' => 'guest','as'=>'sign-in']);
 Route::post('sign-in',['uses'=>'UserSignIn@store','middleware' => 'guest']);
 Route::get('logout',['uses'=>'UserSignIn@getLogOut','middleware' => 'auth']);
 Route::get('profile',['uses'=>'UserSignIn@getProfile','middleware' => 'auth','as'=>'user.profile']);

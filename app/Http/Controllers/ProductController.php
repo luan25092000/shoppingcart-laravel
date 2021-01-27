@@ -7,6 +7,7 @@ use App\Product;
 use App\Cart;
 use App\Order;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Auth;
 class ProductController extends Controller
 {
 
@@ -31,12 +32,16 @@ class ProductController extends Controller
      */
     public function addToCart(Request $request, $id)
     {
-        $product = Product::find($id);
-        $oldCart = Session::has('cart') ? Session::get('cart') : null;
-        $cart = new Cart($oldCart);
-        $cart->add($product,$product->id);
-        $request->session()->put('cart',$cart);
-        return redirect()->route('product.table',['id' => $product->id]);
+        if(Auth::check()){
+            $product = Product::find($id);
+            $oldCart = Session::has('cart') ? Session::get('cart') : null;
+            $cart = new Cart($oldCart);
+            $cart->add($product,$product->id);
+            $request->session()->put('cart',$cart);
+            return redirect()->route('product.table',['id' => $product->id]);
+        }else{
+            return redirect()->route('sign-in');
+        }
     }
 
     /**
