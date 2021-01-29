@@ -23,6 +23,7 @@ class CreateOrdersTable extends Migration
             $table->string('zip');
             $table->string('total');
             $table->text('cart');
+            $table->text('note');
         });
     }
 

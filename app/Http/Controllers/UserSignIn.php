@@ -51,7 +51,7 @@ class UserSignIn extends Controller
             }
             return view('profile');
         }else if($request->input('email') == 'admin@gmail.com' && $request->input('password') == 'admin123'){
-            return redirect()->route('admin');
+            return redirect()->route('dashboard');
         }
         else{
             return back()->with("invalid","Username or password is invalid!");

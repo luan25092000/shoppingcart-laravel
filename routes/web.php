@@ -72,13 +72,46 @@ Route::get('delete/{id}',['uses'=>'ProductController@deleteItem','as'=>'delete.o
 Route::get('decrease/{id}',['uses'=>'ProductController@decreaseItem','as'=>'decrease.item']);
 Route::get('increase/{id}',['uses'=>'ProductController@increaseItem','as'=>'increase.item']);
 Route::get('search',['uses'=>'ProductController@searchProduct','as'=>'search']);
-//Facebook login
-Route::get('login/facebook',[App\Http\Controllers\SocialController::class,'redirectToFacebook'])->name('login.facebook');
-Route::get('login/facebook/callback',[App\Http\Controllers\SocialController::class,'handleFacebookCallback']);
-//Google login
-Route::get('login/google',[App\Http\Controllers\SocialController::class,'redirectToGoogle'])->name('login.google');
-Route::get('login/google/callback',[App\Http\Controllers\SocialController::class,'handleGoogleCallback']);
 //Admin login
-Route::get('admin',function(){
-    return view("admin");
-})->name('admin');
+Route::group(['prefix'=>'admin'],function(){
+	Route::get('dashboard',['uses'=>'DashboardController@index','as'=>'dashboard']);
+	Route::group(['prefix'=>'orders'],function(){
+        Route::get('list',['uses'=>'OrderController@index','as'=>'order.list']);
+        
+        Route::get('edit/{id}',['uses'=>'OrderController@edit','as'=>'order.edit.form']);
+
+		Route::post('edit/{id}',['uses'=>'OrderController@update','as'=>'order.edit']);
+
+        Route::get('add',['uses'=>'OrderController@addOrderForm','as'=>'order.add.form']);
+
+        Route::post('add',['uses'=>'OrderController@store','as'=>'order.add']);
+        
+        Route::get('delete/{id}',['uses'=>'OrderController@destroy','as'=>'order.delete']);
+	});
+	Route::group(['prefix'=>'products'],function(){
+        Route::get('list',['uses'=>'ProductController@index','as'=>'product.list']);
+        
+        Route::get('edit/{id}',['uses'=>'ProductController@edit','as'=>'product.edit.form']);
+
+		Route::post('edit/{id}',['uses'=>'ProductController@update','as'=>'product.edit']);
+
+        Route::get('add',['uses'=>'ProductController@addProductForm','as'=>'product.add.form']);
+
+        Route::post('add',['uses'=>'ProductController@store','as'=>'product.add']);
+        
+        Route::get('delete/{id}',['uses'=>'ProductController@destroy','as'=>'product.delete']);
+    });
+    Route::group(['prefix'=>'users'],function(){
+        Route::get('list',['uses'=>'UserController@index','as'=>'user.list']);
+        
+        Route::get('edit/{id}',['uses'=>'UserController@edit','as'=>'user.edit.form']);
+
+		Route::post('edit/{id}',['uses'=>'UserController@update','as'=>'user.edit']);
+
+        Route::get('add',['uses'=>'UserController@addUserForm','as'=>'user.add.form']);
+        
+        Route::post('add',['uses'=>'UserController@store','as'=>'user.add']);
+
+        Route::get('delete/{id}',['uses'=>'UserController@destroy','as'=>'user.delete']);
+	});
+});

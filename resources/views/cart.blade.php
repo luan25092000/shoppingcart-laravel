@@ -33,7 +33,7 @@
                                             <a class="remove" href="{{ route('delete.order', ['id' => $product['item']['id']]) }}"><i class="fas fa-times-circle"></i></a>
                                         </td>
                                         <td class="product-name">
-                                            <a href="">
+                                            <a href="{{ route('product.table',['id' => $product['item']['id']]) }}">
                                                 <img src="{{ $product['item']['imagePath'] }}" alt="{{ $product['item']['name'] }}" width="160px" height="160px">
                                             </a>
                                             <div style="display:inline-block;margin-left:10px;">
@@ -66,18 +66,7 @@
                         </table>
                     </div>
                     <div class="row">
-                        <div class="col-sm-6">
-                            <div class="grid__item large--five-twelfths">
-                                <div class="cart__note">
-                                    <div class="row">
-                                        <label class="col-md-12">Ghi chú đơn hàng</label>
-                                        <textarea style="height: 100px; padding : 5px 10px" name="note"
-                                            class="col-md-12 input-full"></textarea>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-6 f-right">
+                        <div class="col-sm-12 f-right">
                             <!--START TOTAL-->
                             <div class="cart-total right">
                                 <div class="cart__row">

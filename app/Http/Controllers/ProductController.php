@@ -10,7 +10,54 @@ use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Auth;
 class ProductController extends Controller
 {
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index()
+    {
+        $products = Product::all();
+        return view('admin.products.listProduct',['products'=>$products]);
+    }
 
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function edit($id)
+    {
+        $product = Product::find($id);
+        return view('admin.products.editProduct',['product' => $product]);
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store(Request $request)
+    {
+         // Form validation
+         $this->validate($request, [
+            'img' => 'required',
+            'product-name' => 'required',
+            'price' => 'required'
+        ]);
+        //  Store data in database
+        $product = new Product([
+            'imagePath' => $request->input('img'),
+            'name' => $request->input('product-name'),
+            'price' => $request->input('price'),
+            'color' => $request->input('color') 
+        ]);
+        $product->save();
+        return redirect()->route('product.list');
+    }
+    
     /**
      * Display the specified resource.
      *
@@ -97,6 +144,7 @@ class ProductController extends Controller
         $order->city = $request->input('city');
         $order->state = $request->input('state');
         $order->zip = $request->input('zip');
+        $order->note = $request->input('note');
         $order->cart = serialize($products);
         $order->total = $cart->totalPrice;
         
@@ -167,6 +215,55 @@ class ProductController extends Controller
        $keyword = $request->get('key');
        $results = Product::where('name','LIKE','%'.$keyword.'%')->get();
        return view('search',['results' => $results, 'keyword' => $keyword]);
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy($id)
+    {
+        $product = Product::find($id);
+        $product->delete();
+        return redirect()->route('product.list');
+    }
+
+    /**
+     * Return product add form
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function addProductForm()
+    {
+        return view('admin.products.addProduct');
+    }
+
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Request $request, $id)
+    {
+        // Form validation
+        $this->validate($request, [
+            'img' => 'required',
+            'product-name' => 'required',
+            'price' => 'required'
+        ]);
+
+        $product = Product::find($id);
+        $product->imagePath = $request->input('img');
+        $product->name = $request->input('product-name');
+        $product->price = $request->input('price');
+        $product->color = $request->input('color');
+        $product->save();
+        return redirect()->route('product.list');
     }
 
 }

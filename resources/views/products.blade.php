@@ -29,7 +29,7 @@
             <div class="row">
                 <div class="col-sm-12 position-button-slide">
                     <div class="own-one owl-carousel owl-theme owl-carousel-type3">
-                        <div class="product product-block">
+                        <a class="product product-block" href={{ route('product.table',['id'=>5]) }}>
                             <img src="./img/sofa1.webp" alt="...">
                             <img src="./img/sofa2.webp" class="imgMix" alt="...">
                             <div class="name">ELegant Combo</div>
@@ -39,40 +39,40 @@
                                 <i class="far fa-eye" data-toggle="modal" data-target="#exampleModal"></i>
                                 <i class="fas fa-shopping-bag"></i>
                             </div>
-                        </div>
-                        <div class="product product-block">
+                        </a>
+                        <a class="product product-block" href={{ route('product.table',['id'=>6]) }}>
                             <img src="./img/sofa5.webp" alt="...">
                             <img src="./img/sofa1.webp" class="imgMix" alt="...">
                             <div class="name">SIMPLE COMBO</div>
                             <div class="subname">Ruột gốm ôm chữ nhật premium</div>
-                            <div class="price">880,000₫</div>
+                            <div class="price">980,000₫</div>
                             <div class="detail">
                                 <i class="far fa-eye" data-toggle="modal" data-target="#exampleModal"></i>
                                 <i class="fas fa-shopping-bag"></i>
                             </div>
-                        </div>
-                        <div class="product product-block">
+                        </a>
+                        <a class="product product-block" href={{ route('product.table',['id'=>7]) }}>
                             <img src="./img/sofa8.webp" alt="...">
                             <img src="./img/sofa2.webp" class="imgMix" alt="...">
                             <div class="name">CHIN</div>
                             <div class="subname">Ruột gốm ôm chữ nhật premium</div>
-                            <div class="price">880,000₫</div>
+                            <div class="price">1.080,000₫</div>
                             <div class="detail">
                                 <i class="far fa-eye" data-toggle="modal" data-target="#exampleModal"></i>
                                 <i class="fas fa-shopping-bag"></i>
                             </div>
-                        </div>
-                        <div class="product product-block">
+                        </a>
+                        <a class="product product-block" href={{ route('product.table',['id'=>8]) }}>
                             <img src="./img/sofa6.webp" alt="...">
                             <img src="./img/sofa1.webp" class="imgMix" alt="...">
                             <div class="name">CHIN</div>
                             <div class="subname">Ruột gốm ôm chữ nhật premium</div>
-                            <div class="price">880,000₫</div>
+                            <div class="price">1.180,000₫</div>
                             <div class="detail">
                                 <i class="far fa-eye" data-toggle="modal" data-target="#exampleModal"></i>
                                 <i class="fas fa-shopping-bag"></i>
                             </div>
-                        </div>
+                        </a>
                     </div>
                     <div class="btns-carousel-slide">
                         <div class="customNextBtn"><svg width="1em" height="1em" viewBox="0 0 16 16"

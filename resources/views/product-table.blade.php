@@ -21,7 +21,7 @@
                         <div class="price">{{ number_format($item->price,-3,',',',') }}₫</div>
                         <div><i><small style="color:#676767;">Chất liệu : Mặt gỗ cao su sơn PU, chân gỗ tự nhiên
                         </small></i></div>
-                        <div><i><small style="color:#676767;display:flex;align-items:center;">Màu sắc: <div style="width:10px;height:10px;background-color:{{$item->color}};border:1px solid black;margin-left:10px; margin-top:3px;"></div></small></i></div>
+                        <div><i><small style="color:#676767;display:flex;align-items:center;">Màu sắc: <div style="width:10px;height:10px;background-color:{{ $item->color != NULL ? $item->color : 'transparent' }};{{ $item->color != NULL ? 'border:1px solid black;' : ''}}margin-left:10px; margin-top:3px;"></div></small></i></div>
                         <button type="submit" class="add-to-cart mt-3" style="background-color:#676767; color:white;">Thêm vào
                             giỏ</button>
                     </div>
