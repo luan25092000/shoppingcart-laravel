@@ -37,7 +37,7 @@
                     </div>
                     <div class="form-group">
                         <label for="zip"><i class="fas fa-user-check"></i> Zip</label>
-                        <input type="text" id="zip" name="zip" class="form-control" required>
+                        <input type="number" id="zip" name="zip" class="form-control" required>
                     </div>
                     <div class="form-group">
                         <label for="note">Note</label>

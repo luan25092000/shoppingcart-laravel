@@ -7,35 +7,35 @@
         <div class="row">
             <div class="col-lg-12">
                 <h1 class="page-header">Order
-                    <small>Add</small>
+                    <small>Edit</small>
                 </h1>
-                <form action="{{ route('order.add') }}" method="POST" enctype="multipart/form-data">
+                <form action="{{ route('order.edit',['id' => $order['id']]) }}" method="POST" enctype="multipart/form-data">
 
                     @csrf
 
                     <div class="form-group">
                         <label for="email">Email:</label>
-                        <input type="text" class="form-control" placeholder="Enter email" id="email" name="email" required>
+                        <input type="text" class="form-control" placeholder="Enter email" id="email" name="email" value={{ $order['email'] }} required>
                     </div>
                     <div class="form-group">
                         <label for="address">Address:</label>
-                        <input type="text" class="form-control" placeholder="Enter address" id="address" name="address" required>
+                        <input type="text" class="form-control" placeholder="Enter address" id="address" name="address" value={{ $order['address'] }} required>
                     </div>
                     <div class="form-group">
                         <label for="city">City:</label>
-                        <input type="text" class="form-control" placeholder="Enter city" id="city" name="city" required>
+                        <input type="text" class="form-control" placeholder="Enter city" id="city" name="city" value={{ $order['city'] }} required>
                     </div>
                     <div class="form-group">
                         <label for="state">State:</label>
-                        <input type="text" class="form-control" placeholder="Enter state" id="state" name="state">
+                        <input type="text" class="form-control" placeholder="Enter state" id="state" name="state" value={{ $order['state'] }}>
                     </div>
                     <div class="form-group">
                         <label for="zip">Zip:</label>
-                        <input type="number" class="form-control" placeholder="Enter zip" id="zip" name="zip" required>
+                        <input type="number" class="form-control" placeholder="Enter zip" id="zip" name="zip" value={{ $order['zip'] }} required>
                     </div>
                     <div class="form-group">
                         <label for="qty">Quantity:</label>
-                        <input type="number" class="form-control" placeholder="Enter quantity" id="qty" name="qty" value="0" required>
+                        <input type="number" class="form-control" placeholder="Enter quantity" id="qty" name="qty" value="{{ $cart->qty }}" required>
                     </div>
                     <div class="form-group">
                         <label for="cart">Product:</label>
@@ -47,11 +47,11 @@
                     </div>
                     <div class="form-group">
                         <label for="total">Total:</label>
-                        <input type="number" class="form-control" id="total" name="total" disabled>
+                        <input type="number" class="form-control" id="total" name="total" value={{ $order['total'] }} disabled>
                     </div>
                     <div class="form-group">
                         <label for="note">Note</label>
-                        <textarea class="form-control" id="note" name="note" rows="3"></textarea>
+                        <textarea class="form-control" id="note" name="note" rows="3" value={{ $order['note'] }}></textarea>
                     </div>
                     <button type="submit" class="btn btn-primary">Add</button>
                   </form>

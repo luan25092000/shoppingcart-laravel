@@ -18,7 +18,6 @@
                         <th>Firstname</th>
                         <th>Lastname</th>
                         <th>Email</th>
-                        <th>Password</th>
                         <th>Delete</th>
                         <th>Edit</th>
                     </tr>
@@ -30,7 +29,6 @@
                                 <td>{{ $user['firstname'] }}</td>
                                 <td>{{ $user['lastname'] }}</td>
                                 <td>{{ $user['email'] }}</td>
-                                <td>{{ $user['password'] }}</td>
                                 <td><a href="{{ route('user.delete',['id'=>$user['id']]) }}">Delete</a></td>
                                 <td><a href="{{ route('user.edit.form',['id'=>$user['id']]) }}">Edit</a></td>
                             </tr>

@@ -15,7 +15,21 @@ class DashboardController extends Controller
     public function index()
     {
         $orders = Order::all();
-        return view('admin.dashboard.dashboard',['orders' => $orders]);
+        $products = [];
+        $qty = [];
+        foreach($orders as $order){
+            $cart = json_decode($order['cart']);
+            if(is_array($cart)){
+                foreach($cart as $item){
+                    array_push($products,$item->product);;
+                    array_push($qty,$item->qty);
+                }
+            }else{
+                array_push($products,$cart->product);;
+                array_push($qty,$cart->qty);
+            }
+        }
+        return view('admin.dashboard.dashboard',['products' => json_encode($products),'qty' => json_encode($qty)]);
     }
 
     /**

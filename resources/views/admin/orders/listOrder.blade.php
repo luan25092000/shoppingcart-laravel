@@ -21,6 +21,7 @@
                             <th>State</th>
                             <th>Zip</th>
                             <th>Total</th>
+                            <th>Note</th>
                             <th>Delete</th>
                             <th>Edit</th>
                         </tr>
@@ -35,6 +36,7 @@
                                 <td>{{ $order['state'] }}</td>
                                 <td>{{ $order['zip'] }}</td>
                                 <td>{{ $order['total'] }}</td>
+                                <td>{{ $order['note'] }}</td>
                                 <td><a href="{{ route('order.delete',['id' => $order['id']]) }}">Delete</a></td>
                                 <td><a href="{{ route('order.edit.form',['id' => $order['id']]) }}">Edit</a></td>
                             </tr>

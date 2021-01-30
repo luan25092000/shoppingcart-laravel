@@ -85,7 +85,7 @@ class ProductController extends Controller
             $cart = new Cart($oldCart);
             $cart->add($product,$product->id);
             $request->session()->put('cart',$cart);
-            return redirect()->route('product.table',['id' => $product->id]);
+            return redirect()->route('product.table',['id' => $product->id])->with('success','Add product ');
         }else{
             return redirect()->route('sign-in');
         }
@@ -133,11 +133,11 @@ class ProductController extends Controller
         $cart = new Cart($oldCart);
         $order = new Order();
         $key = ['product','color','price','qty'];
-        $products = [];
+        $detail = [];
         foreach($cart->items as $item){
             $product = [];
             array_push($product,$item['item']['name'],$item['item']['color'],$item['price'],$item['qty']);
-            array_push($products, array_combine($key,$product));
+            array_push($detail, array_combine($key,$product));
         }
         $order->email = $request->input('email');
         $order->address = $request->input('address');
@@ -145,7 +145,7 @@ class ProductController extends Controller
         $order->state = $request->input('state');
         $order->zip = $request->input('zip');
         $order->note = $request->input('note');
-        $order->cart = serialize($products);
+        $order->cart = json_encode($detail);
         $order->total = $cart->totalPrice;
         
         $order->save();

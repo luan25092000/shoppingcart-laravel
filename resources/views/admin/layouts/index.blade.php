@@ -59,6 +59,30 @@
 
     <!-- Handle -->
     <script type="text/javascript" src="admin_asset/dist/js/script.js"></script>
+    <script type="text/javascript">
+        var products = JSON.parse(document.getElementById('products').value);
+        var qty = JSON.parse(document.getElementById('qty').value);
+        var i = -1;
+        var arr = products.map(function(x){
+            i++;
+            return [x,qty[i]];
+        });
+        // google chart
+        google.charts.load('current', {'packages':['corechart']});
+        google.charts.setOnLoadCallback(drawChart);
+
+        function drawChart() {
+            var data = google.visualization.arrayToDataTable([['Product', 'Qty']].concat(arr));
+
+            var options = {
+                title: 'Order'
+            };
+
+            var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+
+            chart.draw(data, options);
+        }
+    </script>
 </body>
 
 </html>

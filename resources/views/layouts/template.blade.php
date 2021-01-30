@@ -33,10 +33,10 @@
 				<div class="account">
 					@if(Auth::check())
 						<a href="{{ route('user.profile') }}">Thông tin đăng nhập</a>
-						<a href="./logout">Đăng xuất</a>
+						<a href="{{ route('logout') }}">Đăng xuất</a>
 					@else
-						<a href="./sign-in">Đăng nhập</a>
-						<a href="./sign-up">Đăng ký</a>
+						<a href="{{ route('sign-in') }}">Đăng nhập</a>
+						<a href="{{ route('sign-up') }}">Đăng ký</a>
 					@endif
 				</div>
 				<nav class="navbar navbar-expand-lg navbar-light bg-transparent nav-custom">
@@ -56,141 +56,141 @@
 								</a>
 								<ul class="dropdown-menu">
 									<li class="dropdown" id="sub-dropdown"> <a class="dropdown-item"
-											href="./product">BÀN -
+											href="{{  route('product') }}">BÀN -
 											tables
 										</a>
 										<ul class="dropdown-menu" id="sub-dropdown-menu">
-											<li><a class="dropdown-item" href="./product-detail">BÀN ĂN</a>
+											<li><a class="dropdown-item" href="{{  route('product-detail') }}">BÀN ĂN</a>
 											</li>
-											<li><a class="dropdown-item" href="./product-detail">BỘ BÀN ĂN</a>
+											<li><a class="dropdown-item" href="{{  route('product-detail') }}">BỘ BÀN ĂN</a>
 											</li>
-											<li><a class="dropdown-item" href="./product-detail">BÀN LÀM VIỆC</a>
+											<li><a class="dropdown-item" href="{{  route('product-detail') }}">BÀN LÀM VIỆC</a>
 											</li>
-											<li><a class="dropdown-item" href="./product-detail">BÀN SOFA, BÀN GÓC</a>
+											<li><a class="dropdown-item" href="{{  route('product-detail') }}">BÀN SOFA, BÀN GÓC</a>
 											</li>
-											<li><a class="dropdown-item" href="./product-detail">BÀN CAFE</a>
+											<li><a class="dropdown-item" href="{{  route('product-detail') }}">BÀN CAFE</a>
 											</li>
-											<li><a class="dropdown-item" href="./product-detail">BÀN TRANG ĐIỂM</a>
+											<li><a class="dropdown-item" href="{{  route('product-detail') }}">BÀN TRANG ĐIỂM</a>
 											</li>
-											<li><a class="dropdown-item" href="./product-detail">CHÂN & MẶT BÀN</a>
+											<li><a class="dropdown-item" href="{{  route('product-detail') }}">CHÂN & MẶT BÀN</a>
 											</li>
 										</ul>
 									</li>
 									<li class="dropdown" id="sub-dropdown"> <a class="dropdown-item"
-											href="./product">SOFA -
+											href="{{  route('product') }}">SOFA -
 											sofas</a>
 										<ul class="dropdown-menu" id="sub-dropdown-menu">
-											<li><a class="dropdown-item" href="./product-detail">SOFA BĂNG</a>
+											<li><a class="dropdown-item" href="{{  route('product-detail') }}">SOFA BĂNG</a>
 											</li>
-											<li><a class="dropdown-item" href="./product-detail">SOFA GÓC</a>
+											<li><a class="dropdown-item" href="{{  route('product-detail') }}">SOFA GÓC</a>
 											</li>
-											<li><a class="dropdown-item" href="./product-detail">SOFA GIƯỜNG</a>
+											<li><a class="dropdown-item" href="{{  route('product-detail') }}">SOFA GIƯỜNG</a>
 											</li>
-											<li><a class="dropdown-item" href="./product-detail">GHẾ ĐÔN, GHẾ BĂNG</a>
+											<li><a class="dropdown-item" href="{{  route('product-detail') }}">GHẾ ĐÔN, GHẾ BĂNG</a>
 											</li>
-											<li><a class="dropdown-item" href="./product-detail">GHẾ BÀNH, THƯ GIÃN</a>
+											<li><a class="dropdown-item" href="{{  route('product-detail') }}">GHẾ BÀNH, THƯ GIÃN</a>
 											</li>
 										</ul>
 									</li>
 									<li class="dropdown" id="sub-dropdown"> <a class="dropdown-item"
-											href="./product">CHĂN, GA,
+											href="{{  route('product') }}">CHĂN, GA,
 											GỐI - bedding</a>
 										<ul class="dropdown-menu" id="sub-dropdown-menu">
-											<li><a class="dropdown-item" href="./product-detail">VỎ GỐI</a>
+											<li><a class="dropdown-item" href="{{  route('product-detail') }}">VỎ GỐI</a>
 											</li>
-											<li><a class="dropdown-item" href="./product-detail">VỎ CHĂN</a>
+											<li><a class="dropdown-item" href="{{  route('product-detail') }}">VỎ CHĂN</a>
 											</li>
-											<li><a class="dropdown-item" href="./product-detail">GA GIƯỜNG</a>
+											<li><a class="dropdown-item" href="{{  route('product-detail') }}">GA GIƯỜNG</a>
 											</li>
-											<li><a class="dropdown-item" href="./product-detail">GỐI TRANG TRÍ</a>
+											<li><a class="dropdown-item" href="{{  route('product-detail') }}">GỐI TRANG TRÍ</a>
 											</li>
-											<li><a class="dropdown-item" href="./product-detail">CHĂN TRANG TRÍ</a>
+											<li><a class="dropdown-item" href="{{  route('product-detail') }}">CHĂN TRANG TRÍ</a>
 											</li>
 										</ul>
 									</li>
 									<li class="dropdown" id="sub-dropdown"> <a class="dropdown-item"
-											href="./product">ĐỒ GIA
+											href="{{  route('product') }}">ĐỒ GIA
 											DỤNG - household goods</a>
 										<ul class="dropdown-menu" id="sub-dropdown-menu">
-											<li><a class="dropdown-item" href="./product-detail">RÈM</a>
+											<li><a class="dropdown-item" href="{{  route('product-detail') }}">RÈM</a>
 											</li>
-											<li><a class="dropdown-item" href="./product-detail">THÙNG RÁC</a>
+											<li><a class="dropdown-item" href="{{  route('product-detail') }}">THÙNG RÁC</a>
 											</li>
-											<li><a class="dropdown-item" href="./product-detail">KỆ BẾP</a>
+											<li><a class="dropdown-item" href="{{  route('product-detail') }}">KỆ BẾP</a>
 											</li>
 										</ul>
 									</li>
 									<li class="dropdown" id="sub-dropdown"> <a class="dropdown-item"
-											href="./product">KỆ, TỦ -
+											href="{{  route('product') }}">KỆ, TỦ -
 											shelf units, cabinets</a>
 										<ul class="dropdown-menu" id="sub-dropdown-menu">
-											<li><a class="dropdown-item" href="./product-detail">KỆ,TỦ LƯU TRỮ</a>
+											<li><a class="dropdown-item" href="{{  route('product-detail') }}">KỆ,TỦ LƯU TRỮ</a>
 											</li>
-											<li><a class="dropdown-item" href="./product-detail">KỆ,TỦ TV</a>
+											<li><a class="dropdown-item" href="{{  route('product-detail') }}">KỆ,TỦ TV</a>
 											</li>
-											<li><a class="dropdown-item" href="./product-detail">KỆ,TỦ GIÀY</a>
+											<li><a class="dropdown-item" href="{{  route('product-detail') }}">KỆ,TỦ GIÀY</a>
 											</li>
-											<li><a class="dropdown-item" href="./product-detail">KỆ,TỦ QUẦN ÁO</a>
+											<li><a class="dropdown-item" href="{{  route('product-detail') }}">KỆ,TỦ QUẦN ÁO</a>
 											</li>
 										</ul>
 									</li>
 									<li class="dropdown" id="sub-dropdown"> <a class="dropdown-item"
-											href="./product">GHẾ -
+											href="{{  route('product') }}">GHẾ -
 											chairs</a>
 										<ul class="dropdown-menu" id="sub-dropdown-menu">
-											<li><a class="dropdown-item" href="./product-detail">Bàn làm việc</a>
+											<li><a class="dropdown-item" href="{{  route('product-detail') }}">Bàn làm việc</a>
 											</li>
-											<li><a class="dropdown-item" href="./product-detail">Bàn làm việc</a>
+											<li><a class="dropdown-item" href="{{  route('product-detail') }}">Bàn làm việc</a>
 											</li>
-											<li><a class="dropdown-item" href="./product-detail">Bàn làm việc</a>
+											<li><a class="dropdown-item" href="{{  route('product-detail') }}">Bàn làm việc</a>
 											</li>
-											<li><a class="dropdown-item" href="./product-detail">Bàn làm việc</a>
+											<li><a class="dropdown-item" href="{{  route('product-detail') }}">Bàn làm việc</a>
 											</li>
 										</ul>
 									</li>
 									<li class="dropdown" id="sub-dropdown"> <a class="dropdown-item"
-											href="./product">ĐÈN -
+											href="{{  route('product') }}">ĐÈN -
 											lamps</a>
 										<ul class="dropdown-menu" id="sub-dropdown-menu">
-											<li><a class="dropdown-item" href="./product-detail">ĐÈN SÀN</a>
+											<li><a class="dropdown-item" href="{{  route('product-detail') }}">ĐÈN SÀN</a>
 											</li>
-											<li><a class="dropdown-item" href="./product-detail">ĐÈN BÀN</a>
+											<li><a class="dropdown-item" href="{{  route('product-detail') }}">ĐÈN BÀN</a>
 											</li>
-											<li><a class="dropdown-item" href="./product-detail">ĐÈN TRANG TRÍ</a>
+											<li><a class="dropdown-item" href="{{  route('product-detail') }}">ĐÈN TRANG TRÍ</a>
 											</li>
 										</ul>
 									</li>
 									<li class="dropdown" id="sub-dropdown"> <a class="dropdown-item"
-											href="./product">SẢN PHẨM
+											href="{{  route('product') }}">SẢN PHẨM
 											DỆT MAY - home</a>
 										<ul class="dropdown-menu" id="sub-dropdown-menu">
-											<li><a class="dropdown-item" href="./product-detail">THẢM</a>
+											<li><a class="dropdown-item" href="{{  route('product-detail') }}">THẢM</a>
 											</li>
-											<li><a class="dropdown-item" href="./product-detail">NỆM</a>
+											<li><a class="dropdown-item" href="{{  route('product-detail') }}">NỆM</a>
 											</li>
 										</ul>
 									</li>
 									<li class="dropdown" id="sub-dropdown"> <a class="dropdown-item"
-											href="./product">ẤN PHẨM -
+											href="{{  route('product') }}">ẤN PHẨM -
 											publications</a>
 									</li>
 									<li class="dropdown" id="sub-dropdown"> <a class="dropdown-item"
-										href="./product">BỘ SƯU TẬP -
+										href="{{  route('product') }}">BỘ SƯU TẬP -
 										collections</a>
 									<ul class="dropdown-menu" id="sub-dropdown-menu">
-										<li><a class="dropdown-item" href="./collection">BỘ SƯU TẬP DALAT</a>
+										<li><a class="dropdown-item" href="{{ route('collection') }}">BỘ SƯU TẬP DALAT</a>
 										</li>
-										<li><a class="dropdown-item" href="./collection">BỘ SƯU TẬP JOHY</a>
+										<li><a class="dropdown-item" href="{{ route('collection') }}">BỘ SƯU TẬP JOHY</a>
 										</li>
-										<li><a class="dropdown-item" href="./collection">BỘ SƯU TẬP HANO</a>
+										<li><a class="dropdown-item" href="{{ route('collection') }}">BỘ SƯU TẬP HANO</a>
 										</li>
 									</ul>
 								</li>
 								</ul>
 							</li>
-							<li class="nav-item"> <a class="nav-link" href="./concept">M.Concept</a>
+							<li class="nav-item"> <a class="nav-link" href="{{ route('concept') }}">M.Concept</a>
 							</li>
-							<li class="nav-item"> <a class="nav-link" href="./design">Thiết kế & Thi
+							<li class="nav-item"> <a class="nav-link" href="{{ route('design') }}">Thiết kế & Thi
 									Công</a>
 							</li>
 							<li class="nav-item dropdown"> <a class="nav-link" href="./news" id="navbarDropdown"
@@ -199,13 +199,13 @@
 								</a>
 								<ul class="dropdown-menu">
 									<li class="dropdown" id="sub-dropdown"> <a class="dropdown-item"
-											href="./news-child">Khuyến mãi</a>
+											href="{{ route('news-child') }}">Khuyến mãi</a>
 									</li>
 									<li class="dropdown" id="sub-dropdown"> <a class="dropdown-item"
-											href="./news-child">Thành viên ưu đãi</a>
+											href="{{ route('news-child') }}">Thành viên ưu đãi</a>
 									</li>
 									<li class="dropdown" id="sub-dropdown"> <a class="dropdown-item"
-											href="./news-child">Tin tức</a>
+											href="{{ route('news-child') }}">Tin tức</a>
 									</li>
 								</ul>
 							</li>

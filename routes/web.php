@@ -42,7 +42,7 @@ Route::get('news',function(){
 })->name('news');
 Route::get('news-child',function(){
     return view("news-child");
-})->name('new-child');
+})->name('news-child');
 Route::get('sales',function(){
     return view("sales");
 })->name('sales');
@@ -56,11 +56,11 @@ Route::get('address',function(){
 Route::get('contact','UserContact@create');
 Route::post('contact','UserContact@store');
 //Sign in, sign up
-Route::get('sign-up',['uses'=>'UserSignUp@create','middleware' => 'guest']);
+Route::get('sign-up',['uses'=>'UserSignUp@create','middleware' => 'guest','as'=>'sign-up']);
 Route::post('sign-up',['uses'=>'UserSignUp@store','middleware' => 'guest']);
 Route::get('sign-in',['uses'=>'UserSignIn@create','middleware' => 'guest','as'=>'sign-in']);
 Route::post('sign-in',['uses'=>'UserSignIn@store','middleware' => 'guest']);
-Route::get('logout',['uses'=>'UserSignIn@getLogOut','middleware' => 'auth']);
+Route::get('logout',['uses'=>'UserSignIn@getLogOut','middleware' => 'auth','as'=>'logout']);
 Route::get('profile',['uses'=>'UserSignIn@getProfile','middleware' => 'auth','as'=>'user.profile']);
 //Product
 Route::get('product/product-table/{id}',['uses'=>'ProductController@show','as'=>'product.table']);

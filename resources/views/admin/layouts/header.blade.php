@@ -7,7 +7,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="index.html">Ánh Trinh</a>
+        <a class="navbar-brand" href="{{ route('dashboard') }}">Ánh Trinh</a>
     </div>
     <!-- /.navbar-header -->
 
