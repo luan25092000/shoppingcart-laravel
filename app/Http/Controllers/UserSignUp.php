@@ -51,7 +51,6 @@ class UserSignUp extends Controller
             'email' => $request->input('email'),
             'password' => bcrypt($request->input('password')) 
         ]);
-        $user->save();
         if(Session::has('user')){
             Session::forget('user');
             Session::put('user',$user);

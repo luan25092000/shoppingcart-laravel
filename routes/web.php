@@ -62,6 +62,12 @@ Route::get('sign-in',['uses'=>'UserSignIn@create','middleware' => 'guest','as'=>
 Route::post('sign-in',['uses'=>'UserSignIn@store','middleware' => 'guest']);
 Route::get('logout',['uses'=>'UserSignIn@getLogOut','middleware' => 'auth','as'=>'logout']);
 Route::get('profile',['uses'=>'UserSignIn@getProfile','middleware' => 'auth','as'=>'user.profile']);
+//Sign in with facebook
+Route::get('login/facebook', 'UserSignIn@redirectToFacebook')->name('facebook.social.login');
+Route::get('login/facebook/callback', 'UserSignIn@handleCallbackFacebook')->name('facebook.social.callback');
+//Sign in with google
+Route::get('login/google', 'UserSignIn@redirectToGoogle')->name('google.social.login');
+Route::get('login/google/callback', 'UserSignIn@handleCallbackGoogle')->name('google.social.callback');
 //Product
 Route::get('product/product-table/{id}',['uses'=>'ProductController@show','as'=>'product.table']);
 Route::post('product/product-table/{id}',['uses'=>'ProductController@addToCart','as'=>'add.to.cart']);
@@ -99,7 +105,7 @@ Route::group(['prefix'=>'admin'],function(){
 
         Route::post('add',['uses'=>'ProductController@store','as'=>'product.add']);
         
-        Route::get('delete/{id}',['uses'=>'ProductController@destroy','as'=>'product.delete']);
+        Route::get('delete/{id}',['uses'=>'ProductController@destroy','middleware' => ['role:admin|producer'],'as'=>'product.delete']);
     });
     Route::group(['prefix'=>'users'],function(){
         Route::get('list',['uses'=>'UserController@index','as'=>'user.list']);
@@ -115,3 +121,5 @@ Route::group(['prefix'=>'admin'],function(){
         Route::get('delete/{id}',['uses'=>'UserController@destroy','as'=>'user.delete']);
 	});
 });
+// Roles
+Route::get('role',['uses'=>'RoleController@index','as'=>'role.index']);

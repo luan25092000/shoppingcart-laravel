@@ -37,10 +37,10 @@
             </div>
             <div class="sign-up-link"><a href="sign-up">Nhấp vào đây để đăng ký !</a></div>
             <div class="d-flex mt-4 justify-content-between social-login">
-                <a href="" class="fb btn">
+                <a href="{{ route('facebook.social.login') }}" class="fb btn">
                     <i class="fa fa-facebook fa-fw"></i> Login with Facebook
                 </a>
-                <a href="" class="google btn"><i class="fa fa-google fa-fw">
+                <a href="{{ route('google.social.login') }}" class="google btn"><i class="fa fa-google fa-fw">
                     </i> Login with Google+
                 </a>
             </div>
